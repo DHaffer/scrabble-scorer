@@ -42,8 +42,8 @@ function runProgram(arr){
   function getWord() {
   word = input.question(`Please enter a word, or 'Stop' to end program.`)
   if(/^[a-z ]+$/.test(word.toLowerCase()) !== true){
-    console.log(`Invalid word.`)
-    getWord()
+    console.log(`Invalid word.`);
+    getWord();
   }
   
   if(word === 'Stop') {
