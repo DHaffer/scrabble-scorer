@@ -31,7 +31,18 @@ return info;
 }
 
 // Code your runProgram function here:
+function runProgram(arr){
+  let selection = initialPrompt();
+  let word = input.question(`Please enter a word to score, or 'Stop' to end program.`);
 
+  if(Number(selection) === 1){
+     return `Your score is: ${arr[1].scoreFunction(word)}`;
+  } else if(Number(selection) === 2){
+    return `Your score is ${arr[2].scoreFunction(word)}`;
+  } else {
+    return `Your score is: ${arr[0].scoreFunction(word, newPointStructure)}`;
+  }
+}
 
 // Here is the oldPointStructure object:
 const oldPointStructure = {
@@ -45,22 +56,20 @@ const oldPointStructure = {
 };
 
 // Use the transform function to create the newPointStructure object here:
-let newPointStructure = transform(oldPointStructure);
-console.log(newPointStructure)
+const newPointStructure = transform(oldPointStructure);
+
 // Create your scoringAlgorithms array here:
 function scrabble(word, obj){
 let score = 0;
 for (let i = 0; i < word.length; i++){
   for(key in obj){
-    if (word[i].toLowerCase() == key) {
+    if (word[i].toLowerCase() === key) {
       score = score + Number(obj[key]);
     }
   }
 }
 return score;
 }
-scrabble('daryn', newPointStructure)
-
 
 function simpleScore(word){
  let score = word.length;
@@ -79,5 +88,23 @@ for (let i = 0; i < word.length; i++){
 return score;
 }
 
+const scrabbleObj = {
+  name: 'Scrabble',
+  description: 'The traditional scoring algorithm',
+  scoreFunction: scrabble
+}
+const simpleScoreObj = {
+  name: 'Simple Score',
+  description: 'Each letter is worth 1 point.',
+  scoreFunction: simpleScore
+}
+const bonusVowelsObj = {
+  name: 'Bonus Vowels',
+  description: 'Vowels are 3 pts, consonants are 1 pt.',
+  scoreFunction: bonusVowels
+}
 
+scoringAlgorithms = [scrabbleObj, simpleScoreObj, bonusVowelsObj];
 // Call the runProgram function here:
+runProgram(scoringAlgorithms)
+
