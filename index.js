@@ -34,15 +34,22 @@ return info;
 function runProgram(arr){
   let selection = initialPrompt();
   let word = input.question(`Please enter a word to score, or 'Stop' to end program.`);
-
-  if(Number(selection) === 1){
-     return `Your score is: ${arr[1].scoreFunction(word)}`;
-  } else if(Number(selection) === 2){
-    return `Your score is ${arr[2].scoreFunction(word)}`;
-  } else {
-    return `Your score is: ${arr[0].scoreFunction(word, newPointStructure)}`;
-  }
+  if(word === 'Stop') {
+    console.clear();
+  } else  {
+     if(Number(selection) === 1){
+         console.log(`Your score is: ${arr[1].scoreFunction(word)}`);
+         runProgram(scoringAlgorithms);
+     }   else if(Number(selection) === 2){
+           console.log(`Your score is ${arr[2].scoreFunction(word)}`);
+           runProgram(scoringAlgorithms);
+         }     else {
+                   console.log(`Your score is: ${arr[0].scoreFunction(word, newPointStructure)}`);
+                   runProgram(scoringAlgorithms);
+               }
+    }
 }
+
 
 // Here is the oldPointStructure object:
 const oldPointStructure = {
