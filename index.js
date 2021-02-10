@@ -27,7 +27,7 @@ Which scoring algorithm would you like to use?
 2 - Bonus Vowels: Vowels are worth 3 pts, and consonants are 1 pt.
 
 Enter 0, 1, or 2:`);
-if(/[0-2]/.test(info) === true) {
+if(info === '0' | info === '1' | info === '2') {
   return info;
 } else {
   console.log(`Please enter a valid input`)
@@ -51,14 +51,11 @@ function runProgram(arr){
   } else  {
      if(Number(selection) === 1){
          console.log(`Your score is: ${arr[1].scoreFunction(word)}`);
-         
-     }   else if(Number(selection) === 2){
+      }   else if(Number(selection) === 2){
            console.log(`Your score is ${arr[2].scoreFunction(word)}`);
-           
-         }     else {
+          }     else {
                    console.log(`Your score is: ${arr[0].scoreFunction(word, newPointStructure)}`);
-                   
-               }
+                }
     getWord()
     }
   }
@@ -129,5 +126,5 @@ const bonusVowelsObj = {
 
 scoringAlgorithms = [scrabbleObj, simpleScoreObj, bonusVowelsObj];
 // Call the runProgram function here:
-runProgram(scoringAlgorithms)
+runProgram(scoringAlgorithms);
 
