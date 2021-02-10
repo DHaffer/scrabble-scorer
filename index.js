@@ -27,28 +27,43 @@ Which scoring algorithm would you like to use?
 2 - Bonus Vowels: Vowels are worth 3 pts, and consonants are 1 pt.
 
 Enter 0, 1, or 2:`);
-return info;
+if(/[0-2]/.test(info) === true) {
+  return info;
+} else {
+  console.log(`Please enter a valid input`)
+  initialPrompt();
+}
 }
 
 // Code your runProgram function here:
 function runProgram(arr){
   let selection = initialPrompt();
-  let word = input.question(`Please enter a word to score, or 'Stop' to end program.`);
+  getWord();
+  function getWord() {
+  word = input.question(`Please enter a word, or 'Stop' to end program.`)
+  if(/^[a-z ]+$/.test(word.toLowerCase()) !== true){
+    console.log(`Invalid word.`)
+    getWord()
+  }
+  
   if(word === 'Stop') {
     console.clear();
   } else  {
      if(Number(selection) === 1){
          console.log(`Your score is: ${arr[1].scoreFunction(word)}`);
-         runProgram(scoringAlgorithms);
+         
      }   else if(Number(selection) === 2){
            console.log(`Your score is ${arr[2].scoreFunction(word)}`);
-           runProgram(scoringAlgorithms);
+           
          }     else {
                    console.log(`Your score is: ${arr[0].scoreFunction(word, newPointStructure)}`);
-                   runProgram(scoringAlgorithms);
+                   
                }
+    getWord()
     }
+  }
 }
+
 
 
 // Here is the oldPointStructure object:
@@ -64,6 +79,7 @@ const oldPointStructure = {
 
 // Use the transform function to create the newPointStructure object here:
 const newPointStructure = transform(oldPointStructure);
+newPointStructure[' '] = '0';
 
 // Create your scoringAlgorithms array here:
 function scrabble(word, obj){
