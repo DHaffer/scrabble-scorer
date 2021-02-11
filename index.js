@@ -39,8 +39,10 @@ if(info === '0' | info === '1' | info === '2') {
 function runProgram(arr){
   let selection = initialPrompt();
   getWord();
+  
   function getWord() {
   word = input.question(`Please enter a word, or 'Stop' to end program.`)
+  
   if(/^[a-z ]+$/.test(word.toLowerCase()) !== true){
     console.log(`Invalid word.`);
     getWord();
