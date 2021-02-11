@@ -30,9 +30,9 @@ Enter 0, 1, or 2:`);
 if(info === '0' | info === '1' | info === '2') {
   return info;
 } else {
-  console.log(`Please enter a valid input`)
-  initialPrompt();
-}
+   console.log(`Please enter a valid input`)
+   initialPrompt();
+  }
 }
 
 // Code your runProgram function here:
@@ -102,8 +102,8 @@ for (let i = 0; i < word.length; i++){
   if (/[aeiou]/.test(word[i].toLowerCase()) === true){
     score = score + 3;
   } else {
-    score++
-  }
+     score++
+    }
 }
 return score;
 }
