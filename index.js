@@ -78,7 +78,7 @@ const oldPointStructure = {
 
 // Use the transform function to create the newPointStructure object here:
 const newPointStructure = transform(oldPointStructure);
-newPointStructure[' '] = '0';
+newPointStructure[' '] = 0;
 
 // Create your scoringAlgorithms array here:
 function scrabble(word, obj){
