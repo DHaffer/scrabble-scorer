@@ -8,7 +8,7 @@ function transform(obj) {
     for (key in obj) {
         let arr = obj[key];
         for (let i = 0; i < arr.length; i++) {
-            retObj[arr[i].toLowerCase()] = key;
+            retObj[arr[i].toLowerCase()] = Number(key);
         }
     }
     return retObj;
@@ -129,4 +129,5 @@ const bonusVowelsObj = {
 scoringAlgorithms = [scrabbleObj, simpleScoreObj, bonusVowelsObj];
 // Call the runProgram function here:
 runProgram(scoringAlgorithms);
+
 
