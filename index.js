@@ -4,14 +4,14 @@ const input = require('readline-sync');
 
 // Code your transform function here:
 function transform(obj) {
-    let retobj = {};
+    let retObj = {};
     for (key in obj) {
         let arr = obj[key];
         for (let i = 0; i < arr.length; i++) {
-            retobj[arr[i].toLowerCase()] = key;
+            retObj[arr[i].toLowerCase()] = key;
         }
     }
-    return retobj;
+    return retObj;
 }
 
 
