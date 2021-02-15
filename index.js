@@ -50,6 +50,7 @@ function runProgram(arr){
   
   if(word === 'Stop') {
     console.clear();
+    runProgram(scoringAlgorithms);
   } else  {
      if(Number(selection) === 1){
          console.log(`Your score is: ${arr[1].scoreFunction(word)}`);
